@@ -7,5 +7,5 @@ maintainers-logins = ["serock"]
 [[external]]
 kind = "hint"
 hint = "Please install Npcap; it can be downloaded from https://npcap.com/"
-available.'case(os)'.windows = true
-available.'case(os)'.'...' = false
+available."case(os)".windows = true
+available."case(os)"."..." = false
