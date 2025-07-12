@@ -1,0 +1,13 @@
+name = "npcap_sdk"
+description = "The Npcap Software Development Kit (SDK)"
+
+maintainers = ["john.serock@gmail.com"]
+maintainers-logins = ["serock"]
+
+[[external]]
+kind = "version-output"
+version-command = ["npcap-sdk-version.cmd"]
+version-regexp = "([\\d\\.]+)"
+hint = "Download the Npcap SDK from https://npcap.com/, unzip it, and set the NPCAP_SDK_HOME environment variable"
+available."case(os)".windows = true
+available."case(os)"."..." = false
