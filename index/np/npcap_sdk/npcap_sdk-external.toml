@@ -1,13 +1,13 @@
-name = "npcap_sdk"
-description = "The Npcap Software Development Kit (SDK)"
+name = 'npcap_sdk'
+description = 'The Npcap Software Development Kit (SDK)'
 
-maintainers = ["john.serock@gmail.com"]
-maintainers-logins = ["serock"]
+maintainers = ['john.serock@gmail.com']
+maintainers-logins = ['serock']
 
 [[external]]
-kind = "version-output"
-version-command = ["powershell.exe", "-Command", "\"if", "(Test-Path", "$env:NPCAP_SDK_HOME/Lib/x64/wpcap.lib)", "{Write-Output", "$env:NPCAP_SDK_HOME}\""]
-version-regexp = "npcap-sdk-([\\d\\.]+)"
-hint = "Download the Npcap SDK from https://npcap.com/, unzip it, and set the NPCAP_SDK_HOME environment variable"
+kind = 'version-output'
+version-command = ['powershell.exe', '-Command', '"if', '(Test-Path', '\"$env:NPCAP_SDK_HOME/Lib/x64/wpcap.lib\")', '{Write-Output', '\"$env:NPCAP_SDK_HOME\"}"']
+version-regexp = 'npcap-sdk-([\d\.]+)'
+hint = 'Download the Npcap SDK from https://npcap.com/, unzip it, and set the NPCAP_SDK_HOME environment variable'
 available."case(os)".windows = true
 available."case(os)"."..." = false
