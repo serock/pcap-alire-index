@@ -4,9 +4,19 @@ description = 'The Npcap Software Development Kit (SDK)'
 maintainers = ['john.serock@gmail.com']
 maintainers-logins = ['serock']
 
+# PowerShell was used to generate the EncodedCommand for determining the Npcap SDK version as follows:
+#
+# $command = 'if (Test-Path "$env:NPCAP_SDK_HOME\Lib\x64\wpcap.lib") {Write-Output "$env:NPCAP_SDK_HOME"}'
+# $encodedCommand = [Convert]::ToBase64String([System.Text.Encoding]::Unicode.GetBytes($command))
+# $encodedCommand
+#
+# PowerShell can be used to decode the EncodedCommand as follows:
+#
+# [System.Text.Encoding]::Unicode.GetString([Convert]::FromBase64String($encodedCommand))
+
 [[external]]
 kind = 'version-output'
-version-command = ['powershell.exe', '-Command', '"if', '(Test-Path', '\"$env:NPCAP_SDK_HOME/Lib/x64/wpcap.lib\")', '{Write-Output', '\"$env:NPCAP_SDK_HOME\"}"']
+version-command = ['powershell.exe', '-NoProfile', '-EncodedCommand', 'aQBmACAAKABUAGUAcwB0AC0AUABhAHQAaAAgACIAJABlAG4AdgA6AE4AUABDAEEAUABfAFMARABLAF8ASABPAE0ARQBcAEwAaQBiAFwAeAA2ADQAXAB3AHAAYwBhAHAALgBsAGkAYgAiACkAIAB7AFcAcgBpAHQAZQAtAE8AdQB0AHAAdQB0ACAAIgAkAGUAbgB2ADoATgBQAEMAQQBQAF8AUwBEAEsAXwBIAE8ATQBFACIAfQA=']
 version-regexp = 'npcap-sdk-([\d\.]+)'
 hint = 'Download the Npcap SDK from https://npcap.com/, unzip it, and set the NPCAP_SDK_HOME environment variable'
 available."case(os)".windows = true
