@@ -1,11 +1,15 @@
-name = "npcap"
-description = "A packet capture (and sending) library for Microsoft Windows"
+name = 'npcap'
+description = 'A packet capture (and sending) library for Microsoft Windows'
 
-maintainers = ["john.serock@gmail.com"]
-maintainers-logins = ["serock"]
+maintainers = ['john.serock@gmail.com']
+maintainers-logins = ['serock']
 
 [[external]]
-kind = "hint"
-hint = "Please install Npcap; it can be downloaded from https://npcap.com/"
+kind = 'version-output'
+version-command = [
+  'powershell.exe', '-Command', '"if', '(Test-Path', '\"$env:SystemRoot/System32/Npcap/Packet.dll\")',
+  '{Write-Output', '([System.Diagnostics.FileVersionInfo]::GetVersionInfo(\"$env:SystemRoot/System32/Npcap/Packet.dll\").FileVersion)"']
+version-regexp = '([\d\.]+)'
+hint = 'Download the Npcap installer from https://npcap.com/ and run it'
 available."case(os)".windows = true
 available."case(os)"."..." = false
