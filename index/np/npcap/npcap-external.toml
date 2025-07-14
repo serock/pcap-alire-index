@@ -6,17 +6,17 @@ maintainers-logins = ['serock']
 
 # PowerShell was used to generate the EncodedCommand for determining the Npcap version as follows:
 #
-# $command = '$npcapDLL = "$env:SystemRoot\System32\Npcap\Packet.dll"; if (Test-Path "$npcapDLL") {Write-Output ([System.Diagnostics.FileVersionInfo]::GetVersionInfo("$npcapDLL").FileVersion)}'
+# $command = '$npcapDLL = "$Env:SystemRoot\System32\Npcap\Packet.dll"; if (Test-Path "$npcapDLL") {[System.Diagnostics.FileVersionInfo]::GetVersionInfo("$npcapDLL").FileVersion}'
 # $encodedCommand = [Convert]::ToBase64String([System.Text.Encoding]::Unicode.GetBytes($command))
 # $encodedCommand
 #
 # PowerShell can be used to decode the EncodedCommand as follows:
-# 
+#
 # [System.Text.Encoding]::Unicode.GetString([Convert]::FromBase64String($encodedCommand))
 
 [[external]]
 kind = 'version-output'
-version-command = ['powershell.exe', '-NoProfile', '-EncodedCommand', 'JABuAHAAYwBhAHAARABMAEwAIAA9ACAAIgAkAGUAbgB2ADoAUwB5AHMAdABlAG0AUgBvAG8AdABcAFMAeQBzAHQAZQBtADMAMgBcAE4AcABjAGEAcABcAFAAYQBjAGsAZQB0AC4AZABsAGwAIgA7ACAAaQBmACAAKABUAGUAcwB0AC0AUABhAHQAaAAgACIAJABuAHAAYwBhAHAARABMAEwAIgApACAAewBXAHIAaQB0AGUALQBPAHUAdABwAHUAdAAgACgAWwBTAHkAcwB0AGUAbQAuAEQAaQBhAGcAbgBvAHMAdABpAGMAcwAuAEYAaQBsAGUAVgBlAHIAcwBpAG8AbgBJAG4AZgBvAF0AOgA6AEcAZQB0AFYAZQByAHMAaQBvAG4ASQBuAGYAbwAoACIAJABuAHAAYwBhAHAARABMAEwAIgApAC4ARgBpAGwAZQBWAGUAcgBzAGkAbwBuACkAfQA=']
+version-command = ['powershell.exe', '-NoProfile', '-EncodedCommand', 'JABuAHAAYwBhAHAARABMAEwAIAA9ACAAIgAkAEUAbgB2ADoAUwB5AHMAdABlAG0AUgBvAG8AdABcAFMAeQBzAHQAZQBtADMAMgBcAE4AcABjAGEAcABcAFAAYQBjAGsAZQB0AC4AZABsAGwAIgA7ACAAaQBmACAAKABUAGUAcwB0AC0AUABhAHQAaAAgACIAJABuAHAAYwBhAHAARABMAEwAIgApACAAewBbAFMAeQBzAHQAZQBtAC4ARABpAGEAZwBuAG8AcwB0AGkAYwBzAC4ARgBpAGwAZQBWAGUAcgBzAGkAbwBuAEkAbgBmAG8AXQA6ADoARwBlAHQAVgBlAHIAcwBpAG8AbgBJAG4AZgBvACgAIgAkAG4AcABjAGEAcABEAEwATAAiACkALgBGAGkAbABlAFYAZQByAHMAaQBvAG4AfQA=']
 version-regexp = '^([\d\.]+)'
 hint = 'Download the Npcap installer from https://npcap.com/ and run it'
 available."case(os)".windows = true
