@@ -16,7 +16,7 @@ maintainers-logins = ['serock']
 
 [[external]]
 kind = 'version-output'
-version-command = ['powershell.exe', '-NoProfile', '-EncodedCommand', 'aQBmACAAKABUAGUAcwB0AC0AUABhAHQAaAAgACIAJABFAG4AdgA6AE4AUABDAEEAUABfAFMARABLAF8ASABPAE0ARQBcAEwAaQBiAFwAeAA2ADQAXAB3AHAAYwBhAHAALgBsAGkAYgAiACkAIAB7ACIAJABFAG4AdgA6AE4AUABDAEEAUABfAFMARABLAF8ASABPAE0ARQAiAH0A']
+version-command = ['powershell.exe', '-NonInteractive', '-NoProfile', '-EncodedCommand', 'aQBmACAAKABUAGUAcwB0AC0AUABhAHQAaAAgACIAJABFAG4AdgA6AE4AUABDAEEAUABfAFMARABLAF8ASABPAE0ARQBcAEwAaQBiAFwAeAA2ADQAXAB3AHAAYwBhAHAALgBsAGkAYgAiACkAIAB7ACIAJABFAG4AdgA6AE4AUABDAEEAUABfAFMARABLAF8ASABPAE0ARQAiAH0A']
 version-regexp = 'npcap-sdk-([\d\.]+)'
 hint = 'Download the Npcap SDK from https://npcap.com/, unzip it, and set the NPCAP_SDK_HOME environment variable'
 available."case(os)".windows = true
